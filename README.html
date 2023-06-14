@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factor and Prime Calculator</title>
+  <style>
+    body {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFAa1FT5GxNsJCDrsmB8vKJgYsIyhU9SEsdERsEKP3Q2CzBHLeQfPbkti-&s=10');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      font-family: Times New Roman, sans-serif;
+      color: white;
+    }
+    
+    .container {
+      width: 85vw;
+      height: 90vh;
+      margin: 0 auto;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 1.0, 0, 0.7);
+      border-radius: 5px;
+    }
+    
+    .image-resize{
+      width: 85vw;
+      height: 55vh;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0 auto;
+    }
+    
+    input[type="number"] {
+      width: 0 auto;
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 3px;
+    }
+    
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    #Factors, #Prime {
+      margin-top: 20px;
+      font-weight: bold;
+aa    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Factor and Prime Calculator</h1>
+    <p>Silahkan masukan angka yang kalian inginkan dibawah </p>
+  <input type="number" id="number" placeholder="Enter a number">
+  <button onclick="calculate()">Calculate</button>
+  <p id="factors"></p>
+  <p id="prime"></p>
+  <img src="https://pbs.twimg.com/media/FyOU6O1aQAAT5mY?format=jpg&name=large" class="image-resize" alt="Momoi&Midori">
+  </div>
+  
+  <script>
+    function calculate() {
+      var number = parseInt(document.getElementById('number').value);
+      var factors = [];
+      var isPrime = true;
+      
+      for (var i = 1; i <= number; i++) {
+        if (number % i === 0) {
+          factors.push(i);
+        }
+      }
+      
+      if (factors.length > 2) {
+        isPrime = false;
+      }
+      
+      document.getElementById('factors').innerHTML = "Factors: " + factors.join(", ");
+      document.getElementById('prime').innerHTML = "Prime: " + isPrime;
+    }
+  </script>
+</body>
+</html>
